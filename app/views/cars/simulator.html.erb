@@ -1,0 +1,20 @@
+<h1>Your Car</h1>
+<p><label>Make </label>
+    <%=@car.make%></p>
+<p><label>Model </label>
+    <%=@car.model%></p>
+<p><label>Year </label>
+    <%=@car.year%></p>
+
+<p>Current Speed =
+    <%=@car.current_speed%></p>
+<form action="/cars/accelerate" method="get">
+  <button type="submit">Accelerate</button>
+</form>
+<form action="/cars/decelerate" method="get">
+  <button type="submit">Decelerate</button>
+</form>
+<form action="/cars/lights" method="get">
+  <button type="submit">Toggle Lights</button>
+</form>
+<p>Lights are <%=@car.lights_on%> !</p>
