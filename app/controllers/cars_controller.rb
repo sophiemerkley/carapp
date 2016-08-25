@@ -1,12 +1,19 @@
 class CarsController < ApplicationController
   def simulator
 
-    @car = Car.new
-    @car.make = params[:make]
-    @car.model = params[:model]
-    @car.year = params[:year]
+    if (!params.has_key?(:make) || params[:make].strip.empty?) ||
+       (!params.has_key?(:model) || params[:model].strip.empty?) ||
+       (!params.has_key?(:year) || params[:year].strip.empty?)
+       redirect_to '/'
+    else
+      @car = Car.new
+      @car.make = params[:make]
+      @car.model = params[:model]
+      @car.year = params[:year]
 
-    session[:car] = @car.to_yaml
+
+      session[:car] = @car.to_yaml
+    end
 
   end
 
